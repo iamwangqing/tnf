@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { CONFIG_FILE } from './constants';
 
 const ConfigSchema = z.object({
+  entry: z.record(z.string()).optional(),
   externals: z.record(z.string()).optional(),
   devServer: z
     .object({

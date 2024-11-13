@@ -46,7 +46,7 @@ export async function build({
   const mako = await import('@umijs/mako');
   // @ts-ignore https://github.com/umijs/mako/pull/1679
   const bundleConfig: BuildParams['config'] = config || {};
-  bundleConfig.entry = {
+  bundleConfig.entry = config?.entry || {
     client: path.join(tmpPath, 'client.tsx'),
   };
   bundleConfig.mode = 'production';

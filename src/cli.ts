@@ -45,12 +45,11 @@ async function run(cwd: string) {
     case 'g':
       const type = argv._[1] as string;
       const name = argv._[2] as string;
-      assert(type, 'Type is required');
-      assert(name, 'Name is required');
       return generate({
         cwd,
         type,
         name,
+        config: await loadConfig({ cwd }),
       });
     case 'sync':
       const { sync } = await import('./sync.js');
